@@ -1,5 +1,6 @@
 <html>
     <head>
+        <title>Trading Quote Generator</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas Neue">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
@@ -94,9 +95,9 @@
                 </div>
                 <p id="text"></p>
                 <p id="author"></p>
-                <div style="display: flex;">
-                    <button class="button" id="new-quote" onClick="generateQuote();">New Quote</button>
+                <div class="buttons">
                     <a class="tweet-button" target="_blank"  onclick="window.open(twitterURL,'_blank');return false;" id="tweet-quote" ><i class="fa-brands fa-x-twitter "></i></a>
+                    <button class="button" id="new-quote" onClick="generateQuote();">New Quote</button>                   
                 </div>
             </div>
             <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
