@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas Neue">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+        <script src="https://kit.fontawesome.com/707d7eeb64.js" crossorigin="anonymous"></script>
+        <script>
+            const QUOTEBANK = [
+                {
+                    text: "“If you can learn to create a state of mind that is not affected by the market's behaviour, the struggle will cease to exist.”",
+                    author: "Mark Douglas" 
+                },
+                {
+                    text: "“Trading doesn’t just reveal your character; it also builds it if you stay in the game long enough.”",
+                    author: "Yvan Byeajee" 
+                },
+                {
+                    text: "“Confidence is not ‘I will profit on this trade.’ Confidence is ‘I will be fine if I don’t profit from this trade.”",
+                    author: "Yvan Byeajee" 
+                },
+                {
+                    text: "“Trading is very competitive and you have to be able to handle getting your butt kicked.”",
+                    author: "Paul Tudor Jones" 
+                },
+                {
+                    text: "“Do not anticipate and move without market confirmation - being a little late in your trade is your insurance that you are right or wrong.”",
+                    author: "Jesse Livermore" 
+                },
+                {
+                    text: "“Most traders take a good system and destroy it by trying to make it into a perfect system.”",
+                    author: "Robert Prechter" 
+                },
+                {
+                    text: "“The goal of a successful trader is to make the best trades. Money is secondary.”",
+                    author: "Alexander Elder" 
+                },
+                {
+                    text: "“If most traders would learn to sit on their hands 50 percent of the time, they would make a lot more money.”",
+                    author: "Bill Lipschutz" 
+                },
+                {
+                    text: "“I just wait until there is money lying in the corner, and all I have to do is go over there and pick it up. I do nothing in the meantime.”",
+                    author: "Jim Rogers" 
+                },
+                {
+                    text: "“What seems too high and risky to the majority generally goes higher and what seems low and cheap generally goes lower.”",
+                    author: "William O'Neil" 
+                },
+                {
+                    text: "“I always laugh at people who say, ‘I’ve never met a rich technician.’ I love that! It’s such an arrogant, nonsensical response. I used fundamentals for nine years and got rich as a technician.”",
+                    author: "Martin Schwartz" 
+                },
+                {
+                    text: "“Patterns don't work 100% of the time. But they are still critical because they help you define your risk. If you ignore patterns and focus on hunches, feelings, and hot tips, just forget about achieving consistency.”",
+                    author: "Ifan Wei" 
+                }
+
+            ]
+
+
+            window.onload = load;
+            function load() {
+                generateQuote();
+            }
+            let tweet;
+    let twitterURL ;
+            function generateQuote() {
+                let randomIndex = Math.floor(Math.random() * QUOTEBANK.length);
+                document.getElementById("text").innerText = QUOTEBANK[randomIndex].text;
+                document.getElementById("author").innerText = QUOTEBANK[randomIndex].author;
+                tweet=QUOTEBANK[randomIndex].text + "    -" + QUOTEBANK[randomIndex].author;
+                twitterURL =`https://twitter.com/intent/tweet?text=${tweet}`
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+    let tweetButton = document.querySelector('.tweet-button');
+    let  tweetIcon= document.querySelector('.fa-x-twitter');
+
+    tweetButton.addEventListener('mouseenter', function () {
+        tweetIcon.classList.add('fa-flip');
+    });
+    tweetButton.addEventListener('mouseleave', function () {
+        tweetIcon.classList.remove('fa-flip');
+    })
+
+})
+
+        </script>
+    </head>
+        <body class="background">
+            <div id="quote-box">
+                <div>
+                    <i class="fa fa-quote-left"></i>
+                </div>
+                <p id="text"></p>
+                <p id="author"></p>
+                <div style="display: flex;">
+                    <button class="button" id="new-quote" onClick="generateQuote();">New Quote</button>
+                    <a class="tweet-button" target="_blank"  onclick="window.open(twitterURL,'_blank');return false;" id="tweet-quote" ><i class="fa-brands fa-x-twitter "></i></a>
+                </div>
+            </div>
+            <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+        </body>
+</html>
